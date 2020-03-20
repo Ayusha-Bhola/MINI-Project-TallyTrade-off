@@ -67,7 +67,7 @@ public class Registrationpage1 {
 
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.info);
-		frame.setBounds(100, 100, 1920, 1080);
+		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

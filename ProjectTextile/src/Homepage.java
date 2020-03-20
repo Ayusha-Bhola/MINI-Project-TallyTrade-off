@@ -51,6 +51,13 @@ public class Homepage {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Sponsor's");
+		btnNewButton.setToolTipText("Click to view");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sponsers.main(null);
+			}
+			
+		});
 		btnNewButton.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent arg0) {
@@ -68,6 +75,12 @@ public class Homepage {
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Project Info");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProjectInfo.main(null);
+			}
+			
+		});
 		btnNewButton_1.setFont(new Font("Lucida Console", Font.BOLD, 22));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setForeground(new Color(224, 255, 255));
@@ -75,6 +88,11 @@ public class Homepage {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Creator's");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Creators.main(null);
+			}
+		});
 		btnNewButton_2.setFont(new Font("Lucida Console", Font.BOLD, 22));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));
 		btnNewButton_2.setForeground(new Color(224, 255, 255));
@@ -104,28 +122,28 @@ public class Homepage {
 		frame.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setBounds(1231, 517, 225, 225);
+		label_1.setBounds(1190, 563, 225, 225);
 		frame.getContentPane().add(label_1);
 		label_1.setIcon(new ImageIcon(Homepage.class.getResource("/image/graph.jpg")));
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(Homepage.class.getResource("/image/image (1).png")));
-		label_2.setBounds(1279, 149, 578, 321);
+		label_2.setIcon(new ImageIcon(Homepage.class.getResource("/image/rsz_pf2.jpg")));
+		label_2.setBounds(1242, 209, 599, 295);
 		frame.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("");
 		label_3.setIcon(new ImageIcon(Homepage.class.getResource("/image/image.png")));
-		label_3.setBounds(1490, 517, 388, 183);
+		label_3.setBounds(1481, 605, 388, 183);
 		frame.getContentPane().add(label_3);
 		
 		Panel panel = new Panel();
-		panel.setBounds(0,0,1920,1080);
+		panel.setBounds(0, 0, 1920, 1080);
 		frame.getContentPane().add(panel);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(Homepage.class.getResource("/image/bg1.jpg")));
-		panel.add(label_4);
-		frame.setBounds(100, 100, 1920, 1080);
+		JLabel lblNewLabel = new JLabel("\r\n\r\n");
+		lblNewLabel.setIcon(new ImageIcon(Homepage.class.getResource("/image/bg1.jpg")));
+		panel.add(lblNewLabel);
+		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ImageIcon img2=new ImageIcon("towel.jpg");
 		Image img1=new ImageIcon(this.getClass().getResource("logo.png")).getImage();

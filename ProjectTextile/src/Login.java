@@ -99,7 +99,7 @@ public class Login {
 		frame.setFont(new Font("Lucida Console", Font.BOLD, 12));
 		frame.setTitle("TEXTILE LOGIN PAGE");
 		
-		frame.setBounds(100, 100, 1920, 1080);
+		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

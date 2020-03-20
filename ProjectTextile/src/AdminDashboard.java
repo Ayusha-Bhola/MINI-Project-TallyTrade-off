@@ -1,109 +1,119 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
 import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JEditorPane;
-import javax.swing.JSlider;
-import javax.swing.JTree;
-import javax.swing.JToggleButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextPane;
 import java.awt.SystemColor;
-import javax.swing.JTextField;
-import java.awt.Choice;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class AdminDashboard {
+class AdminDashboard extends JFrame implements ActionListener {
 
-	private JFrame frame;
-	private JTextField textField;
+    JFileChooser fc;
+    JButton b, b1,b2;
+    JTextField tf;
+    FileInputStream in;
+    Socket s;
+    DataOutputStream dout;
+    DataInputStream din;
+    JLabel l;
+    int i;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminDashboard window = new AdminDashboard();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    AdminDashboard() {
+    	
+        super("Admin dashboard");
+        getContentPane().setBackground(SystemColor.info);
+       
+        tf = new JTextField();
+       
+        tf.setBounds(426, 289, 689, 51);
+        tf.setFont(new Font("Arial",Font.PLAIN, 25));
+        getContentPane().add(tf);
+        l=new JLabel();
+        l.setBounds(250,289,589,51);
+        l.setText("Choose File:");
+        l.setFont(new Font("Gabriola", Font.BOLD, 40));
+        getContentPane().add(l);
+        b = new JButton("Browse");
+        b.setBounds(1156, 289, 190, 51);
+        b.setFont(new Font("Gabriola", Font.BOLD, 40));
+        b.setForeground(SystemColor.text);
+		b.setBackground(SystemColor.desktop);
+        getContentPane().add(b);
+        b.addActionListener(this);
+        b1 = new JButton("Upload");
+        b1.setBounds(715, 467, 230, 66);
+        b1.setFont(new Font("Gabriola", Font.BOLD, 40));
+        b1.setForeground(SystemColor.text);
+		b1.setBackground(SystemColor.desktop);
+        getContentPane().add(b1);
+        b1.addActionListener(this);
+        b2 = new JButton("View Details");
+        b2.setBounds(1115, 467, 230, 66);
+        b2.setFont(new Font("Gabriola", Font.BOLD, 40));
+        b2.setForeground(SystemColor.text);
+		b2.setBackground(SystemColor.desktop);
+        getContentPane().add(b2);
+        b2.addActionListener(this);
+        fc = new JFileChooser();
+        getContentPane().setLayout(null);
+        setBounds(0,0,1920,1080);
+        setVisible(true);
+        try {
+            s = new Socket("localhost", 10);
+            dout = new DataOutputStream(s.getOutputStream());
+            din = new DataInputStream(s.getInputStream());
+            send();
+        } catch (Exception e) {
+        }
+    }
+    
 
-	/**
-	 * Create the application.
-	 */
-	public AdminDashboard() {
-		initialize();
-	}
+    public void actionPerformed(ActionEvent e) {
+    File fileToBeSent;
+    File f1 = fc.getSelectedFile();
+    try {
+           if (e.getSource() == b) {
+               int x = fc.showOpenDialog(null);
+               if (x == JFileChooser.APPROVE_OPTION) {
+                   fileToBeSent = fc.getSelectedFile();
+                   tf.setText(fileToBeSent.getAbsolutePath());
+                   b1.setEnabled(true);
+               } else {
+                   fileToBeSent = null;
+                   tf.setText(null);
+                   b1.setEnabled(false);
+               }
+               
+           }
+           if (e.getSource() == b1) {
+               send();
+           }
+           if(e.getSource()==b2)
+           {
+        	   UserloginDashboard.main(null);
+           }
+       } catch (Exception ex) {
+       }
+    }
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.info);
-		frame.setTitle("Administrator Dashboard");
-		frame.setBounds(100, 100, 1920, 1080);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JButton btnUploadFile = new JButton("Upload File");
-		btnUploadFile.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnUploadFile.setBounds(317, 285, 211, 55);
-		frame.getContentPane().add(btnUploadFile);
-		
-		JButton btnView = new JButton("View");
-		btnView.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnView.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				UserloginDashboard.main(null);
-			}
-		});
-		btnView.setBounds(387, 533, 133, 55);
-		frame.getContentPane().add(btnView);
-		
-		JButton btnChooseFile = new JButton("Browse");
-		btnChooseFile.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnChooseFile.setBounds(706, 141, 154, 33);
-		frame.getContentPane().add(btnChooseFile);
-		
-		textField = new JTextField();
-		textField.setBounds(262, 140, 413, 33);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblChooseFile = new JLabel("Choose File");
-		lblChooseFile.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblChooseFile.setBounds(141, 140, 133, 34);
-		frame.getContentPane().add(lblChooseFile);
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
+    public void copy() throws IOException {
+        File f1 = fc.getSelectedFile();
+        tf.setText(f1.getAbsolutePath());
+        in = new FileInputStream(f1.getAbsolutePath());
+        while ((i = in.read()) != -1) {
+            System.out.print(i);
+        }
+    }
+
+    public void send() throws IOException {
+        dout.write(i);
+        dout.flush();
+
+    }
+
+    public static void main(String... d) {
+    	
+        new AdminDashboard();
+       
+    }
 }
+
