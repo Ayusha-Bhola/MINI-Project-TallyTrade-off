@@ -91,6 +91,7 @@ return sdf.format(cal.getTime());
 class Dateselect {
 	public static String g;
 	public static JLabel l;
+	
 	final static JFrame f = new JFrame();
 	public void putTextNow (JLabel label) {
         l=label;
