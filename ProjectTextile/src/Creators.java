@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class Creators {
 
@@ -52,13 +54,21 @@ public class Creators {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnX = new JButton("X");
+		btnX.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				btnX.setBackground(Color.RED);
+
+			}
+		});
+		btnX.setForeground(Color.GRAY);
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Homepage.main(null);
 			}
 		});
-		btnX.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnX.setBackground(new Color(255, 0, 0));
+		btnX.setFont(new Font("Lucida Sans", Font.PLAIN, 20));
+		btnX.setBackground(Color.WHITE);
 		btnX.setBounds(1850, 0, 70, 31);
 		frame.getContentPane().add(btnX);
 		
@@ -88,8 +98,9 @@ public class Creators {
 		frame.getContentPane().add(label_3);
 		
 		JLabel lblCreators = new JLabel("Creator's ");
+		lblCreators.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCreators.setFont(new Font("Gabriola", Font.BOLD, 45));
-		lblCreators.setBounds(12, 13, 635, 55);
+		lblCreators.setBounds(12, 13, 1908, 55);
 		frame.getContentPane().add(lblCreators);
 		
 		JLabel lblAkshataMachal = new JLabel("Akshata Machal");
@@ -143,7 +154,6 @@ public class Creators {
 		frame.getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Creators.class.getResource("/image/rsz_11586348.jpg")));
 		panel.add(lblNewLabel);
 		frame.setUndecorated(true);
 		frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);

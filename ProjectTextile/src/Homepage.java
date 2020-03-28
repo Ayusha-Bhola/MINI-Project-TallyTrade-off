@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Panel;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,6 +16,7 @@ import java.awt.Label;
 import javax.swing.JPanel;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class Homepage {
 
@@ -46,12 +49,12 @@ public class Homepage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Sponsor's");
-		btnNewButton.setToolTipText("Click to view");
+		JButton btnNewButton = new JButton("Sponsors");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sponsers.main(null);
@@ -63,13 +66,13 @@ public class Homepage {
 			public void mouseMoved(MouseEvent arg0) {
 				
 				
-				btnNewButton.setToolTipText("Hello");
+				btnNewButton.setToolTipText("Click to view");
 
 			}
 		});
-		btnNewButton.setFont(new Font("Lucida Console", Font.BOLD, 22));
-		btnNewButton.setForeground(new Color(224, 255, 255));
-		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setFont(new Font("Lucida Console", Font.PLAIN, 25));
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBackground(Color.WHITE);
 		
 		btnNewButton.setBounds(595, 40, 185, 48);
 		frame.getContentPane().add(btnNewButton);
@@ -81,10 +84,10 @@ public class Homepage {
 			}
 			
 		});
-		btnNewButton_1.setFont(new Font("Lucida Console", Font.BOLD, 22));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setForeground(new Color(224, 255, 255));
-		btnNewButton_1.setBounds(839, 40, 204, 48);
+		btnNewButton_1.setFont(new Font("Lucida Console", Font.PLAIN, 25));
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setForeground(Color.BLACK);
+		btnNewButton_1.setBounds(839, 40, 239, 48);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Creator's");
@@ -93,10 +96,10 @@ public class Homepage {
 				Creators.main(null);
 			}
 		});
-		btnNewButton_2.setFont(new Font("Lucida Console", Font.BOLD, 22));
-		btnNewButton_2.setBackground(new Color(0, 0, 0));
-		btnNewButton_2.setForeground(new Color(224, 255, 255));
-		btnNewButton_2.setBounds(1090, 40, 204, 48);
+		btnNewButton_2.setFont(new Font("Lucida Console", Font.PLAIN, 25));
+		btnNewButton_2.setBackground(Color.WHITE);
+		btnNewButton_2.setForeground(Color.BLACK);
+		btnNewButton_2.setBounds(1137, 40, 204, 48);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("LOG IN");
@@ -111,7 +114,8 @@ public class Homepage {
 		btnNewButton_3.setBounds(1704, 40, 153, 48);
 		frame.getContentPane().add(btnNewButton_3);
 		
-		JLabel lblSaleSimulator = new JLabel("Sale Simulator");
+		JLabel lblSaleSimulator = new JLabel("Sale's Forcast");
+		lblSaleSimulator.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSaleSimulator.setFont(new Font("Gabriola", Font.BOLD | Font.ITALIC, 50));
 		lblSaleSimulator.setBounds(240, 46, 307, 42);
 		frame.getContentPane().add(lblSaleSimulator);
@@ -121,27 +125,12 @@ public class Homepage {
 		label.setBounds(0, 0, 216, 113);
 		frame.getContentPane().add(label);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(1190, 563, 225, 225);
-		frame.getContentPane().add(label_1);
-		label_1.setIcon(new ImageIcon(Homepage.class.getResource("/image/graph.jpg")));
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(Homepage.class.getResource("/image/rsz_pf2.jpg")));
-		label_2.setBounds(1242, 209, 599, 295);
-		frame.getContentPane().add(label_2);
-		
-		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(Homepage.class.getResource("/image/image.png")));
-		label_3.setBounds(1481, 605, 388, 183);
-		frame.getContentPane().add(label_3);
-		
 		Panel panel = new Panel();
 		panel.setBounds(0, 0, 1920, 1080);
 		frame.getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("\r\n\r\n");
-		lblNewLabel.setIcon(new ImageIcon(Homepage.class.getResource("/image/bg1.jpg")));
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Homepage.class.getResource("/image/destop.jpg")));
 		panel.add(lblNewLabel);
 		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
