@@ -61,6 +61,8 @@ public class ProjectInfo {
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Homepage.main(null);
+				frame.dispose(); //Destroy the JFrame object
+
 			}
 		});
 		btnX.setFont(new Font("Lucida Console", Font.PLAIN, 20));
@@ -68,7 +70,7 @@ public class ProjectInfo {
 		btnX.setBounds(1854, 0, 66, 31);
 		frame.getContentPane().add(btnX);
 		
-		JLabel lblNewLabel = new JLabel("<html>\r\n-> The proposed solution will have the ability to solve the problem of manual work of storing the data  and maintenance  of data.<br>\r\n-> This solution provides the connectivity between Tally and Database.<br>\r\n-> Using this we can get the analysis of overall of sales also helps to decide the profit or loss in business.<br>\r\n-> We implement efficient and user friendly application for users.<br>\r\n-> Sale analysis of area wise distribution of products.<br>\r\n</html>\r\n\r\n");
+		JLabel lblNewLabel = new JLabel("<html>\r\n-> The proposed solution will have the ability to solve the problem of manual work of storing the data  and maintenance  of data.<br>\r\n-> This solution provides the connectivity between Tally and Database.<br>\r\n->  We implement efficient and user friendly application for users.<br>\r\n-> Data is Exported in Tally using XML interface using SOAP API interaction with HTTP interface<br>\r\n->Tally sends response to the XML  sent from which useful info is stored in database</html>\r\n\r\n");
 		lblNewLabel.setFont(new Font("Gabriola", Font.PLAIN, 30));
 		lblNewLabel.setBounds(0, 440, 831, 372);
 		frame.getContentPane().add(lblNewLabel);

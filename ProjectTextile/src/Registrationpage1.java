@@ -65,7 +65,7 @@ public class Registrationpage1 {
 		Class.forName("org.sqlite.JDBC");
 		Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\bhola\\Database1.db");
 
-		frame = new JFrame();
+		frame = new JFrame("Tally Trade-off");
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -177,6 +177,8 @@ public class Registrationpage1 {
 					    java.sql.Statement stmt = con.createStatement();
 					    stmt.executeUpdate(query);
 					    JOptionPane.showMessageDialog(parent,"Login Succeed","Message",JOptionPane.PLAIN_MESSAGE);
+					    LoginAdmin2.main(null);
+						frame.dispose();
 
 					} catch (Exception e) {
 						 JOptionPane.showMessageDialog(parent,"Please enter another userName");
@@ -200,14 +202,18 @@ public class Registrationpage1 {
 		btnSubmit.setBounds(921, 636, 202, 48);
 		frame.getContentPane().add(btnSubmit);
 		
-		JButton button = new JButton("");
+		JButton button = new JButton("BACK");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LoginAdmin2.main(null);
+				frame.dispose();
 			}
 		});
-		button.setIcon(new ImageIcon(Registrationpage1.class.getResource("/image/back1.png")));
-		button.setBounds(0, 0, 108, 106);
+		button.setForeground(SystemColor.text);
+		button.setBackground(SystemColor.desktop);
+		button.setBounds(0, 0, 97, 25);
+		//button.setIcon(new ImageIcon(Registrationpage1.class.getResource("/image/back1.png")));
+		//button.setBounds(0, 0, 108, 106);
 		frame.getContentPane().add(button);
 	}
 }

@@ -50,7 +50,7 @@ public class Homepage {
 	 */
 	private void initialize() {
 		
-		frame = new JFrame();
+		frame = new JFrame("Tally Trade-off");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
@@ -58,6 +58,8 @@ public class Homepage {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sponsers.main(null);
+				frame.dispose();
+
 			}
 			
 		});
@@ -81,6 +83,8 @@ public class Homepage {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ProjectInfo.main(null);
+				frame.dispose();
+
 			}
 			
 		});
@@ -94,6 +98,7 @@ public class Homepage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Creators.main(null);
+				frame.dispose();
 			}
 		});
 		btnNewButton_2.setFont(new Font("Lucida Console", Font.PLAIN, 25));
@@ -106,6 +111,8 @@ public class Homepage {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login.main(null);
+				frame.dispose();
+
 			}
 		});
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
@@ -114,7 +121,7 @@ public class Homepage {
 		btnNewButton_3.setBounds(1704, 40, 153, 48);
 		frame.getContentPane().add(btnNewButton_3);
 		
-		JLabel lblSaleSimulator = new JLabel("Sale's Forcast");
+		JLabel lblSaleSimulator = new JLabel("Tally Trade-off..");
 		lblSaleSimulator.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSaleSimulator.setFont(new Font("Gabriola", Font.BOLD | Font.ITALIC, 50));
 		lblSaleSimulator.setBounds(240, 46, 307, 42);

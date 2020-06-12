@@ -47,7 +47,7 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("Tally Trade-off");
 		frame.getContentPane().setFont(new Font("Tahoma", Font.ITALIC, 16));
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.getContentPane().setLayout(null);
@@ -59,6 +59,7 @@ public class Login {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				LoginAdmin1.main(null);
+				frame.dispose();
 			}
 		});
 		btnNewButton.setBounds(622, 663, 294, 50);
@@ -69,6 +70,7 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 				
 				LoginAdmin2.main(null);
+				frame.dispose();
 			}
 		});
 		btnAdmin.setBackground(SystemColor.desktop);
@@ -94,6 +96,22 @@ public class Login {
 		Image img2=new ImageIcon(this.getClass().getResource("login.jpg")).getImage();
 		lblNewLabel_2.setIcon(new ImageIcon(img2));
 		lblNewLabel_2.setBounds(854, 13, 302, 234);
+		
+		JButton button = new JButton("BACK");
+		button.setForeground(SystemColor.text);
+		button.setBackground(SystemColor.desktop);
+		button.setBounds(0, 0, 97, 25);
+
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Homepage.main(null);
+				frame.dispose();
+			}
+		});
+		//button.setIcon(new ImageIcon(Registrationpage.class.getResource("/image/back1.png")));
+		//button.setBounds(0, 0, 108, 106);
+		frame.getContentPane().add(button);
+		
 		frame.getContentPane().add(lblNewLabel_2);
 		frame.setBackground(new Color(0, 0, 102));
 		frame.setFont(new Font("Lucida Console", Font.BOLD, 12));

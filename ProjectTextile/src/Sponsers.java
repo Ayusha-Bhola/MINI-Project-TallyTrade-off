@@ -87,6 +87,8 @@ public class Sponsers {
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Homepage.main(null);
+				frame.dispose(); //Destroy the JFrame object
+
 			}
 		});
 		btnX.setForeground(new Color(128, 128, 128));

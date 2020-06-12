@@ -58,7 +58,7 @@ public class LoginAdmin1 {
 	 */
 	private void initialize()  {
 		
-		frame = new JFrame();
+		frame = new JFrame("Tally Trade-off");
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,6 +101,8 @@ public class LoginAdmin1 {
 		btnNewRegistration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Registrationpage.main(null);
+				frame.dispose();
+
 			}
 		});
 		btnNewRegistration.setBounds(682, 482, 266, 64);
@@ -149,7 +151,9 @@ public class LoginAdmin1 {
 			                    		if(rs.getString(2).compareTo(password)==0) {
 				                    		
 				                    		JOptionPane.showMessageDialog(parent,"Login Succeed","Message",JOptionPane.PLAIN_MESSAGE);
-				                    		AdminDashboard.main(null);
+				                    		Tallygui.main(null);
+				            				frame.dispose();
+
 				                    	}
 				                    	else
 				                    	{
@@ -193,14 +197,19 @@ public class LoginAdmin1 {
 		lblNewLabel.setBounds(348, 213, 283, 234);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton button = new JButton("");
+		JButton button = new JButton("BACK");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login.main(null);
+				frame.dispose();
+
 			}
 		});
-		button.setIcon(new ImageIcon(LoginAdmin1.class.getResource("/image/back1.png")));
-		button.setBounds(0, 0, 103, 109);
+		button.setForeground(SystemColor.text);
+		button.setBackground(SystemColor.desktop);
+		button.setBounds(0, 0, 97, 25);
+		//button.setIcon(new ImageIcon(LoginAdmin1.class.getResource("/image/back1.png")));
+		//button.setBounds(0, 0, 103, 109);
 		frame.getContentPane().add(button);
 	}
 }

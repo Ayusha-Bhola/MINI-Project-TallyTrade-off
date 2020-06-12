@@ -65,6 +65,7 @@ public class Creators {
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Homepage.main(null);
+				frame.dispose();
 			}
 		});
 		btnX.setFont(new Font("Lucida Sans", Font.PLAIN, 20));
