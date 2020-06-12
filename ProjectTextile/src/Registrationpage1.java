@@ -176,7 +176,7 @@ public class Registrationpage1 {
 
 					    java.sql.Statement stmt = con.createStatement();
 					    stmt.executeUpdate(query);
-					    JOptionPane.showMessageDialog(parent,"Login Succeed","Message",JOptionPane.PLAIN_MESSAGE);
+					    JOptionPane.showMessageDialog(parent,"Registration Succeed","Message",JOptionPane.PLAIN_MESSAGE);
 					    LoginAdmin2.main(null);
 						frame.dispose();
 
