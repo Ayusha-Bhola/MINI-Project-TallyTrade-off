@@ -10,6 +10,10 @@ Tally Trade Off Screenshots
 ![image](https://user-images.githubusercontent.com/59277684/186890519-632adbc0-eb0d-4dfe-af1a-9e5edf3aaf61.png)
 ![image](https://user-images.githubusercontent.com/59277684/186890539-3c864376-8aba-4778-bd97-b2c9758fcdef.png)
 ![image](https://user-images.githubusercontent.com/59277684/186890888-3c2e8e31-26ac-4737-9f32-7b92587ae0f9.png)
+![1 tally](https://user-images.githubusercontent.com/59277684/186891965-c3b0680c-f8a0-494e-bfa4-d0216368145e.jpg)
+![2 tally](https://user-images.githubusercontent.com/59277684/186892050-a6ae770a-e19c-4bbd-9ff0-c8a7555d932d.jpg)
+
+
 
 
 Tally Trade off Video Demonstration.
